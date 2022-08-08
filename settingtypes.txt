@@ -1,0 +1,7 @@
+
+# Enable player stacks update on join
+items_update_onjoin_stacks (Enable player stacks update) bool false
+
+# enable player item update when item put into/move in player inventories
+items_update_move_stack (Enable player item update on move/put) bool true
+
