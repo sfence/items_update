@@ -4,7 +4,7 @@ function items_update.fix_stack_alias(stack)
   if (count>0) then
     local def = stack:get_definition()
     local name = stack:get_name()
-    if (def.name~=name) then
+    if def and (def.name~=name) then
       local meta = stack:get_meta():to_table()
       local wear = stack:get_wear()
       stack:set_name(def.name)
