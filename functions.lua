@@ -4,7 +4,7 @@ function items_update.fix_stack_alias(stack)
   if (count>0) then
     local def = stack:get_definition()
     local name = stack:get_name()
-    if def and (def.name~=name) then
+    if def and (def.name~=name) and (def.name~="unknown") then
       local meta = stack:get_meta():to_table()
       local wear = stack:get_wear()
       stack:set_name(def.name)
@@ -16,6 +16,9 @@ function items_update.fix_stack_alias(stack)
         return false
       end
       return true
+    elseif (not def) or (def.name=="unknown") then
+      minetest.log("warning", "[items_update] Item \""..name.."\" cannot be updated, because item is undeffined.")
+      return false
     end
   end
   
